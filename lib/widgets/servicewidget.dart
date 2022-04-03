@@ -3,12 +3,12 @@ import 'package:provider/provider.dart';
 import 'package:mybonsoir/models/services.dart';
 import 'package:mybonsoir/models/discovery.dart';
 import 'package:bonsoir/bonsoir.dart';
+// ignore: unused_import
 import 'package:socket_io_client/socket_io_client.dart';
 
 
 class ServiceWidget extends StatefulWidget {
   const ServiceWidget({Key? key}) : super(key: key);
-
   @override
   _ServiceWidgetState createState() => _ServiceWidgetState();
 }
@@ -18,6 +18,7 @@ class _ServiceWidgetState extends State<ServiceWidget> {
     BonsoirDiscoveryPackage _package = context.watch<BonsoirDiscoveryPackage>();
     List discoveredServices = _package.discoveredServices;
     List discoveredDevices = _package.discoveredDevices;
+    // ignore: unused_local_variable
     bool serviceOn = true;
     bool _serviceOff = false;
     int mycounter;
@@ -31,8 +32,7 @@ class _ServiceWidgetState extends State<ServiceWidget> {
       return ListView.builder(
       itemCount: discoveredServices.length,
       itemBuilder: (BuildContext context, int index){
-
-        final _results = discoveredDevices[index];
+        final _results = discoveredServices[index];
         final _resultson = discoveredDevices[index];
         print("Here we get our results");
         print(_results);
@@ -54,7 +54,7 @@ class MyService extends StatelessWidget{
 
     bool isCorrect = false;
     String myvalue ="";
-    ListTile(
+    return ListTile(
       title:  Text(service!.name),
       subtitle: Text("Type : ${service.type}, ip : ${service!.ip}, port : ${service!.port}"),
     );

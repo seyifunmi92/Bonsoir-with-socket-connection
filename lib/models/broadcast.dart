@@ -11,6 +11,7 @@ class BonsoirBroadcastPackage extends ChangeNotifier {
   bool isBroadcasting = false;
   bool get _isBroadcasting => isBroadcasting;
   //Method to start broadcasting
+
   Future<void> startBroadcast({bool notifier = false}) async {
     if (myBroadcast == null || myBroadcast.isStopped) {
       myBroadcast = BonsoirBroadcast(service: await MybonsoirService.getBonsoirService());
@@ -29,6 +30,7 @@ class BonsoirBroadcastPackage extends ChangeNotifier {
       notifyListeners();
     }
   }
+
 @override
   void dispose() {
     startBroadcast();
